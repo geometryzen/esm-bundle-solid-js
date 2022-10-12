@@ -1,7 +1,7 @@
 {
-    "name": "@geometryzen/my-lib",
-    "version": "0.9.0",
-    "description": "My Library",
+    "name": "@geometryzen/solid-js",
+    "version": "0.9.1",
+    "description": "solid-js as system module",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
     "types": "dist/index.d.ts",
@@ -30,8 +30,8 @@
         "package.json"
     ],
     "keywords": [
-        "my",
-        "lib"
+        "solid",
+        "JavaScript"
     ],
     "publishConfig": {
         "access": "public"
@@ -47,19 +47,19 @@
         "lint": "eslint . --ext .ts",
         "pages": "npm run docs:typedoc && gh-pages -d docs",
         "pretest": "npm run build",
-        "prepublishOnly": "npm run build && npm run test && npm run lint && npm run pages",
+        "prepublishOnly": "npm run build && npm run lint && npm run check",
         "test": "jest"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/geometryzen/my-lib.git"
+        "url": "git+https://github.com/geometryzen/solid-js.git"
     },
     "author": "David Geo Holmes",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/geometryzen/my-lib/issues"
+        "url": "https://github.com/geometryzen/solid-js/issues"
     },
-    "homepage": "https://github.com/geometryzen/my-lib#readme",
+    "homepage": "https://github.com/geometryzen/solid-js#readme",
     "devDependencies": {
         "@rollup/plugin-commonjs": "^22.0.2",
         "@rollup/plugin-node-resolve": "^14.1.0",
@@ -80,5 +80,8 @@
         "ts-node": "^10.9.1",
         "typedoc": "^0.23.16",
         "typescript": "^4.8.4"
+    },
+    "dependencies": {
+        "solid-js": "^1.5.7"
     }
 }
