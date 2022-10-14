@@ -38,7 +38,7 @@
     "scripts": {
         "build": "rollup -c",
         "check": "npx package-check",
-        "clean": "rm -rf coverage && rm -rf dist && rm -rf docs && rm -rf types && rm -rf node_modules",
+        "clean": "rm -rf coverage && rm -rf dist/cjs && rm -rf dist/esm && rm -rf dist/system && rm -rf dist/umd && rm -rf dist/generated.index.d.ts && rm -rf docs && rm -rf types && rm -rf node_modules",
         "coverage": "npm run test -- --coverage",
         "dev": "rollup -c -w",
         "docs": "npm run docs:typedoc && open-cli docs/index.html",

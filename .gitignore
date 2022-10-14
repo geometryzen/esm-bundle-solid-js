@@ -1,6 +1,6 @@
 coverage/
 dist/cjs/**/*.*
-dist/esm/**/*.
+dist/esm/**/*.*
 dist/system/**/*.*
 dist/umd/**/*.*
 dist/generated.index.d.ts
