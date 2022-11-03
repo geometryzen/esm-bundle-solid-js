@@ -1,7 +1,7 @@
 {
     "name": "@geometryzen/solid-js",
-    "version": "0.9.7",
-    "description": "solid-js as system module",
+    "version": "0.9.8",
+    "description": "solid-js as a system module",
     "module": "dist/esm/index.js",
     "types": "dist/index.d.ts",
     "exports": {
@@ -57,7 +57,7 @@
         "@rollup/plugin-node-resolve": "^15.0.1",
         "@rollup/plugin-typescript": "^9.0.2",
         "@skypack/package-check": "^0.2.2",
-        "@types/jest": "^29.2.0",
+        "@types/jest": "^29.2.1",
         "@typescript-eslint/eslint-plugin": "^5.42.0",
         "@typescript-eslint/parser": "^5.42.0",
         "eslint": "^8.26.0",
@@ -70,7 +70,7 @@
         "ts-jest": "^29.0.3",
         "ts-jest-resolver": "^2.0.0",
         "ts-node": "^10.9.1",
-        "typedoc": "^0.23.19",
+        "typedoc": "^0.23.20",
         "typescript": "^4.8.4"
     },
     "dependencies": {
