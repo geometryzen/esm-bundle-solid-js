@@ -738,6 +738,8 @@ declare namespace JSX {
   }
   interface DialogHtmlAttributes<T> extends HTMLAttributes<T> {
     open?: boolean;
+    onClose?: EventHandlerUnion<T, Event>;
+    onCancel?: EventHandlerUnion<T, Event>;
   }
   interface EmbedHTMLAttributes<T> extends HTMLAttributes<T> {
     height?: number | string;
@@ -2023,7 +2025,7 @@ declare namespace JSX {
 declare function enableHydration(): void;
 /**
  * A general `Component` has no implicit `children` prop.  If desired, you can
- * specify one as in `Component<{name: String, children: JSX.Element>}`.
+ * specify one as in `Component<{name: String, children: JSX.Element}>`.
  */
 declare type Component<P = {}> = (props: P) => JSX.Element;
 /**
