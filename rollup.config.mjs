@@ -1,71 +1,68 @@
-/* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/no-var-requires */
+import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
-import dts from 'rollup-plugin-dts';
-import external from 'rollup-plugin-peer-deps-external';
 import { terser } from 'rollup-plugin-terser';
-import pkg from './package.json' assert { type: 'json' };
+import packageJson from './package.json' assert {type: 'json'};
+
+const dependencyPkgName = "solid-js";
+const dependencyVersion = /[0-9.]+$/.exec(
+    packageJson.devDependencies[dependencyPkgName]
+)[0];
 
 /**
- * Comment with library information to be appended in the generated bundles.
+ * @param format Either 'module' or 'system'.
+ * @param target Either 'es5' or 'es2015'
+ * @returns 
  */
-const banner = `/**
- * ${pkg.name} ${pkg.version}
- * (c) ${pkg.author}
- * Released under the ${pkg.license} License.
+function createConfig(format, target, minify) {
+    const configDir = (format === "module" ? "esm" : format) + "/" + target;
+    const plugins = [
+        resolve({
+            exportConditions: target === "es2015" ? ["es2015"] : undefined,
+        }),
+        commonjs()
+    ];
+    if (minify) {
+        plugins.push(terser());
+    }
+    const banner = `/**
+ * ${packageJson.name}@${packageJson.version} is a "${format}" format for ${dependencyPkgName}@${dependencyVersion}
+ * © 2022 ${packageJson.author}
+ * Released under the ${packageJson.license} License.
  */
 `.trim();
 
-/**
- * @type {import('rollup').RollupOptions}
- */
-const options =
-{
-    input: 'src/index.ts',
-    output: [
-        {
-            banner,
-            file: './dist/esm/index.js',
-            format: 'esm',
-            sourcemap: true
+    return {
+        input: {
+            // The key, "name", is used to generate the output file folder and file name in conjunction with entryFileNames.
+            // The value is the path to the source code.
+            "index": "./src/solid.js",
+            "html/index": "./src/solid-js-html.js",
+            "store/index": "./src/solid-js-store.js",
+            "universal/index": "./src/solid-js-universal.js",
+            "web/index": "./src/solid-js-web.js"
         },
-        {
-            banner,
-            file: './dist/esm/index.min.js',
-            format: 'esm',
-            sourcemap: true,
-            plugins: [terser()]
-        },
-        {
-            banner,
-            file: './dist/system/index.js',
-            format: 'system',
-            sourcemap: true
-        },
-        {
-            banner,
-            file: './dist/system/index.min.js',
-            format: 'system',
-            sourcemap: true,
-            plugins: [terser()]
-        }
-    ],
-    plugins: [
-        external(),
-        resolve(),
-        typescript({ tsconfig: './tsconfig.json' })
-    ]
-};
+        output: [
+            {
+                // Placing the output in a "dist" folder makes it easier to clean up, but is also a bit less elegant to consume.
+                dir: `${configDir}`,
+                entryFileNames: `[name]${minify ? ".min" : ""}.js`,
+                chunkFileNames: `shared${minify ? ".min" : ""}.js`,
+                format,
+                // sourcemap: true,
+                banner,
+            }
+        ],
+        plugins
+    };
+}
 
 export default [
-    options,
-    {
-        //
-        //
-        //
-        input: 'node_modules/solid-js/types/index.d.ts',
-        output: [{ file: 'dist/generated.index.d.ts', format: "esm" }],
-        plugins: [dts()],
-    }
+    createConfig("module", "es5", false),
+    createConfig("module", "es2015", false),
+    createConfig("system", "es5", false),
+    createConfig("system", "es2015", false),
+    createConfig("module", "es5", true),
+    createConfig("module", "es2015", true),
+    createConfig("system", "es5", true),
+    createConfig("system", "es2015", true),
 ];

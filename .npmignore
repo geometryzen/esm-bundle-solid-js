@@ -14,15 +14,3 @@ register.js
 rollup.config.js
 tsconfig.json
 typedoc.json
-dist/cjs/index.d.ts
-dist/cjs/src/index.d.ts
-dist/cjs/tests/**/*.*
-dist/esm/index.d.ts
-dist/esm/src/index.d.ts
-dist/esm/tests/**/*.*
-dist/system/index.d.ts
-dist/system/src/index.d.ts
-dist/system/tests/**/*.*
-dist/umd/index.d.ts
-dist/umd/src/index.d.ts
-dist/umd/tests/**/*.*
