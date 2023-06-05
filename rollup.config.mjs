@@ -1,7 +1,7 @@
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
-import packageJson from './package.json' assert {type: 'json'};
+import terser from '@rollup/plugin-terser';
+import packageJson from './package.json' assert { type: 'json' };
 
 const dependencyPkgName = "solid-js";
 const dependencyVersion = /[0-9.]+$/.exec(
@@ -26,7 +26,7 @@ function createConfig(format, target, minify) {
     }
     const banner = `/**
  * ${packageJson.name}@${packageJson.version} is a "${format}" format for ${dependencyPkgName}@${dependencyVersion}
- * © 2022 ${packageJson.author}
+ * © 2023 ${packageJson.author}
  * Released under the ${packageJson.license} License.
  */
 `.trim();
