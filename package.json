@@ -1,6 +1,6 @@
 {
     "name": "@geometryzen/solid-js",
-    "version": "1.8.10",
+    "version": "1.8.15",
     "description": "solid-js as an EcmaScript module or system module bundle",
     "type": "module",
     "exports": {
@@ -23,6 +23,10 @@
         "./web": {
             "system": "./system/es2015/web/index.min.js",
             "default": "./esm/es2015/web/index.min.js"
+        },
+        "./web/storage": {
+            "system": "./system/es2015/web/storage/index.min.js",
+            "default": "./esm/es2015/web/storage/index.min.js"
         }
     },
     "files": [
@@ -67,21 +71,21 @@
         "@rollup/plugin-terser": "^0.4.4",
         "@rollup/plugin-typescript": "^11.1.6",
         "@skypack/package-check": "^0.2.2",
-        "@types/jest": "^29.5.11",
-        "@types/rollup-plugin-peer-deps-external": "2.2.4",
-        "@typescript-eslint/eslint-plugin": "^6.18.1",
-        "@typescript-eslint/parser": "^6.18.1",
-        "eslint": "^8.56.0",
+        "@types/jest": "^29.5.12",
+        "@types/rollup-plugin-peer-deps-external": "2.2.5",
+        "@typescript-eslint/eslint-plugin": "^7.1.1",
+        "@typescript-eslint/parser": "^7.1.1",
+        "eslint": "^8.57.0",
         "gh-pages": "^6.1.1",
         "jest": "^29.7.0",
         "open-cli": "^8.0.0",
         "rollup-plugin-dts": "^6.1.0",
         "rollup-plugin-peer-deps-external": "^2.2.4",
-        "solid-js": "^1.8.10",
-        "ts-jest": "^29.1.1",
+        "solid-js": "^1.8.15",
+        "ts-jest": "^29.1.2",
         "ts-jest-resolver": "^2.0.1",
         "ts-node": "^10.9.2",
-        "typedoc": "^0.25.7",
+        "typedoc": "^0.25.11",
         "typescript": "^5.3.3"
     }
 }

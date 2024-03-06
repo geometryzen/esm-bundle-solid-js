@@ -39,7 +39,8 @@ function createConfig(format, target, minify) {
             "html/index": "./src/solid-js-html.js",
             "store/index": "./src/solid-js-store.js",
             "universal/index": "./src/solid-js-universal.js",
-            "web/index": "./src/solid-js-web.js"
+            "web/index": "./src/solid-js-web.js",
+            "web/storage/index": "./src/solid-js-web-storage.js"
         },
         output: [
             {
