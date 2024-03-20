@@ -1,6 +1,6 @@
 {
     "name": "@geometryzen/solid-js",
-    "version": "1.8.15",
+    "version": "1.8.16",
     "description": "solid-js as an EcmaScript module or system module bundle",
     "type": "module",
     "exports": {
@@ -73,19 +73,19 @@
         "@skypack/package-check": "^0.2.2",
         "@types/jest": "^29.5.12",
         "@types/rollup-plugin-peer-deps-external": "2.2.5",
-        "@typescript-eslint/eslint-plugin": "^7.1.1",
-        "@typescript-eslint/parser": "^7.1.1",
+        "@typescript-eslint/eslint-plugin": "^7.3.1",
+        "@typescript-eslint/parser": "^7.3.1",
         "eslint": "^8.57.0",
         "gh-pages": "^6.1.1",
         "jest": "^29.7.0",
         "open-cli": "^8.0.0",
         "rollup-plugin-dts": "^6.1.0",
         "rollup-plugin-peer-deps-external": "^2.2.4",
-        "solid-js": "^1.8.15",
+        "solid-js": "^1.8.16",
         "ts-jest": "^29.1.2",
         "ts-jest-resolver": "^2.0.1",
         "ts-node": "^10.9.2",
-        "typedoc": "^0.25.11",
-        "typescript": "^5.3.3"
+        "typedoc": "^0.25.12",
+        "typescript": "^5.4.2"
     }
 }
